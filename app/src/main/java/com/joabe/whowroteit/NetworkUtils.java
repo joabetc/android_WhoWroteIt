@@ -22,6 +22,8 @@ public class NetworkUtils {
     private static final String MAX_RESULTS = "maxResults";
     // Parameter to filter by print type.
     private static final String PRINT_TYPE = "printType";
+    // Parameter that restrict result by download availabity
+    private static final String DOWNLOAD = "download";
 
     static String getBookInfo(String queryString) {
         HttpURLConnection urlConnection = null;
@@ -33,6 +35,7 @@ public class NetworkUtils {
                     .appendQueryParameter(QUERY_PARAM, queryString)
                     .appendQueryParameter(MAX_RESULTS, "10")
                     .appendQueryParameter(PRINT_TYPE, "books")
+                    .appendQueryParameter(DOWNLOAD, "epub")
                     .build();
 
             URL requestURL = new URL(buildURI.toString());
